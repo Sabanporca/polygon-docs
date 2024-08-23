@@ -53,8 +53,18 @@ nav:
   - CDK:
       - CDK: cdk/index.md
       - Overview: cdk/overview.md
-      - Version compatibility matrix: cdk/version-matrix.md
-      - Get started: cdk/getting-started/index.md
+      - Releases:
+        - Version compatibility matrix: cdk/version-matrix.md
+      - Get started: 
+        - Local deployment guide: cdk/getting-started/local-deployment.md
+        - CDK erigon:
+          - CDK erigon: cdk/getting-started/cdk-erigon/index.md
+          - Releases: cdk/getting-started/cdk-erigon/releases.md
+          - Deploy a node: cdk/getting-started/cdk-erigon/deploy-cdk-erigon.md
+          - How to:
+            - Configure chains dynamically: cdk/getting-started/cdk-erigon/chain-config.md
+            - Recover the network: cdk/getting-started/cdk-erigon/network-recovery.md
+          - Resources: cdk/getting-started/cdk-erigon/resources.md 
       - Concepts:
         - Layer 2s: cdk/concepts/layer2s.md
         - L2 architecture overview: cdk/concepts/architecture.md
@@ -93,8 +103,8 @@ nav:
         - Etrog upgrade: zkEVM/architecture/protocol/etrog-upgrade.md
       - Build:
         - Get started: zkEVM/get-started/index.md
-        - Quick start: zkEVM/get-started/quick-start.md
-        - Setup nodes:
+        - Connect to zkEVM: zkEVM/get-started/quick-start.md
+        - Deployment guides:
           - Setup local zkNode: zkEVM/get-started/setup-nodes/local-node.md
           - Setup production zkNode: zkEVM/get-started/setup-nodes/production-node.md
           - Deploy zkEVM:
@@ -107,15 +117,23 @@ nav:
               - Configure prover: zkEVM/get-started/setup-nodes/deploy-zkevm/configure-prover.md
               - Start node: zkEVM/get-started/setup-nodes/deploy-zkevm/start-node.md
               - Start services: zkEVM/get-started/setup-nodes/deploy-zkevm/start-services.md
-          - Sync state with snapshots: zkEVM/get-started/state-sync-snapshots.md
+          # - Sync state with snapshots: zkEVM/get-started/state-sync-snapshots.md
+        - Risk disclosures: zkEVM/get-started/risk-disclosures.md
         - Historical data: zkEVM/get-started/historical-data.md
       - Architecture:
         - Architecture: zkEVM/architecture/index.md
-        - Smart contracts: 
+        - Smart contracts:
           - Overview: zkEVM/architecture/high-level/smart-contracts/overview.md
           - Main contracts: zkEVM/architecture/high-level/smart-contracts/main-contracts.md
           - Consensus contracts - sequencing: zkEVM/architecture/high-level/smart-contracts/sequencing.md
-          - Bridging: zkEVM/architecture/high-level/smart-contracts/bridging.md
+          - Unified bridge:
+            - History of the unified bridge: zkEVM/architecture/high-level/unified-LxLy/lxly-bridge.md
+            - The rollup manager: zkEVM/architecture/high-level/unified-LxLy/ulxly-rollupmanager.md
+            - Sequencing and verification flows: zkEVM/architecture/high-level/unified-LxLy/ulxly-sequence-verify.md
+            - Updating rollups: zkEVM/architecture/high-level/unified-LxLy/ulxly-updating-rollups.md
+            - Global exit trees: zkEVM/architecture/high-level/unified-LxLy/ulxly-exit-trees-node.md
+            - Cross-chain exchanges: zkEVM/architecture/high-level/unified-LxLy/ulxly-interchain-exchanges.md
+            - Bridging: zkEVM/architecture/high-level/unified-LxLy/bridging.md
           - Exit roots: zkEVM/architecture/high-level/smart-contracts/exit-roots.md   
           - Consensus contracts - verification: zkEVM/architecture/high-level/smart-contracts/verification.md
           - API:
@@ -165,8 +183,10 @@ nav:
               - Data streamer protocols: zkEVM/architecture/data-streamer/data-streamer-protocols.md
               - Bookmarks: zkEVM/architecture/data-streamer/bookmarks.md
               - Protocol messages: zkEVM/architecture/data-streamer/client-server-messages.md
+              - Server-source library: zkEVM/architecture/data-streamer/server-source-library.md
               - Stream file: zkEVM/architecture/data-streamer/stream-file.md
               - How rollbacks work: zkEVM/architecture/data-streamer/how-rollbacks-work.md
+            - About reorgs: zkEVM/architecture/protocol/synchronizer-reorg.md
           - Admin role and governance: zkEVM/architecture/protocol/admin-role.md
           - Upgrades:
             - Protocol upgradability: zkEVM/architecture/protocol/upgradability.md
@@ -176,13 +196,6 @@ nav:
             - Force batches: zkEVM/architecture/protocol/malfunction-resistance/sequencer-resistance.md
             - Force verification: zkEVM/architecture/protocol/malfunction-resistance/aggregator-resistance.md
             - Emergency state: zkEVM/architecture/protocol/malfunction-resistance/emergency-state.md
-          - Unified bridge:
-            - History of the unified bridge: zkEVM/architecture/protocol/unified-LxLy/lxly-bridge.md
-            - The rollup manager: zkEVM/architecture/protocol/unified-LxLy/ulxly-rollupmanager.md
-            - Sequencing and verification flows: zkEVM/architecture/protocol/unified-LxLy/ulxly-sequence-verify.md
-            - Updating rollups: zkEVM/architecture/protocol/unified-LxLy/ulxly-updating-rollups.md
-            - Global exit trees: zkEVM/architecture/protocol/unified-LxLy/ulxly-exit-trees-node.md
-            - Cross-chain exchanges: zkEVM/architecture/protocol/unified-LxLy/ulxly-interchain-exchanges.md
         - zkProver:
           - zkProver: zkEVM/architecture/zkprover/index.md
           - zkProver design:
@@ -289,8 +302,8 @@ nav:
           - Program counter: zkEVM/concepts/generic-state-machine/program-counter.md
           - Plookup: zkEVM/concepts/generic-state-machine/plookup.md
         - CIRCOM: zkEVM/concepts/circom-intro-brief.md
-      - Troubleshooting:
-        - Disclosures: zkEVM/troubleshooting/risk-disclosures.md
+      # - Troubleshooting:
+      #   - Disclosures: zkEVM/troubleshooting/risk-disclosures.md
   - PoS:
       - PoS: pos/index.md
       - Overview: pos/overview.md
@@ -422,9 +435,12 @@ nav:
       - Chain indexer framework:
           - Overview: tools/chain-indexer-framework/overview.md
           - Usage: tools/chain-indexer-framework/usage.md 
+      - RPC Proxy:
+          - eRPC: tools/rpc-proxy-caching/erpc.md
       - Data:
           - Alchemy subgraphs: https://docs.alchemy.com/docs/how-to-build-and-deploy-a-subgraph-on-polygon-zkevm-using-alchemy-subgraphs
           - Covalent: tools/data/covalent.md
+          - DipDup: https://dipdup.io/docs/supported-networks/polygon
           - Envio: tools/data/envio.md
           - Flair: tools/data/flair.md
           - Moralis: tools/data/moralis.md
@@ -548,7 +564,7 @@ nav:
           - OKX explorer: https://www.okx.com/web3/explorer/polygon      
           - Polygon: https://polygonscan.com/ 
           - zkEVM: https://zkevm.polygonscan.com/
-          - zkEVM testnet: https://testnet-zkevm.polygonscan.com/
+          - zkEVM testnet: https://cardona-zkevm.polygonscan.com/
   - Innovation & design:
       - Innovation & design: innovation-design/index.md
       - Welcome: innovation-design/welcome.md
@@ -654,6 +670,10 @@ plugins:
       keep_docs_dir: false
   - search
   - open-in-new-tab
+  - redirects:
+      redirect_maps:
+        'docs/develop/network-details/network.md': 'cdk/index.md'
+
 
 validation:
   absolute_links: warn
