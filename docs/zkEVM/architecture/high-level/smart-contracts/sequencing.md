@@ -1,6 +1,8 @@
+<!--
 ---
 comments: true
 ---
+-->
 
 Transactions flowing through the system reach the smart contract environment after one of two contract call use cases:
 
@@ -36,7 +38,7 @@ struct BatchData {
 
 The function validates arguments, checks and organizes the batches, and appends them in the correct sequence while computing an accumulated hash. 
 
-Finally, the function emits a `SequenceBatches` event which sends a newly sequenced batch of transactions to the `PolygonRollupManager.sol` contract after the [`onSequenceBatches(...)`](#onsequencebatchesnewsequencedbatches-newaccinputhash) function returns successfully. 
+Finally, the function emits a `SequenceBatches` event which sends a newly sequenced batch of transactions to the `PolygonRollupManager.sol` contract after the [`onSequenceBatches(...)`](./api/PolygonRollupManager.md/#onsequencebatches) function returns successfully. 
 
 Stepwise, the function does the following:
 

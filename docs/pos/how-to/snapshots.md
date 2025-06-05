@@ -1,6 +1,8 @@
+<!--
 ---
 comments: true
 ---
+-->
 
 When setting up a new sentry, validator, or full node server, it is recommended that you use snapshots for faster syncing without having to sync over the network. Using snapshots will save you several days for both Heimdall and Bor. 
 
@@ -8,13 +10,13 @@ When setting up a new sentry, validator, or full node server, it is recommended 
 
 Polygon PoS has transitioned to a community-driven model for snapshots. Active community members now contribute to provide snapshots. Some of these members include:
 
-| Name                                                                   | Available snapshots   | Note                                         |
-| ---------------------------------------------------------------------- | --------------------- | -------------------------------------------- |
-| Stakecraft                                                             | Mainnet, Amoy, Erigon | Support for Erigon archive snapshot          |
+| Name                                                                  | Available snapshots   | Note                                         |
+| --------------------------------------------------------------------- | --------------------- | -------------------------------------------- |
+| Stakecraft                                                            | Mainnet, Amoy, Erigon | Support for Erigon archive snapshot          |
 | [PublicNode (by Allnodes)*](https://publicnode.com/snapshots#polygon) | Mainnet, Amoy         | Support for PBSS + PebbleDB enabled snapshot |
-| Stakepool                                                              | Mainnet, Amoy         | -                                            |
-| Vaultstaking                                                           | Mainnet               | -                                            |
-| Girnaar Nodes                                                          | Amoy                  | -                                            |
+| Stakepool                                                             | Mainnet, Amoy         | -                                            |
+| Vaultstaking                                                          | Mainnet               | -                                            |
+| Girnaar Nodes                                                         | Amoy                  | -                                            |
 
 > *\*The PBSS + PebbleDB snapshot provided by PublicNode is currently in the beta phase.*
 
@@ -47,13 +49,13 @@ Let's say you have mounted your block device at `~/snapshots` and have downloade
 ```bash
 # remove any existing datadirs for Heimdall and Bor
 rm -rf /var/lib/heimdall/data
-rm -rf /var/lib/bor/chaindata
+rm -rf /var/lib/bor/data/bor/chaindata
 
 # rename and setup symlinks to match default client datadir configs
 mv ~/snapshots/heimdall_extract ~/snapshots/data
 mv ~/snapshots/bor_extract ~/snapshots/chaindata
 sudo ln -s ~/snapshots/data /var/lib/heimdall
-sudo ln -s ~/snapshots/chaindata /var/lib/bor
+sudo ln -s ~/snapshots/chaindata /var/lib/bor/data/bor
 
 # bring up clients with all snapshot data properly registered
 sudo service heimdalld start
@@ -78,12 +80,12 @@ sudo service bor start
 
 ### Polygon mainnet
 
-| Metric                            | Calculation Breakdown               | Value   |
-| --------------------------------- | ----------------------------------- | ------- |
-| approx. compressed total          | 1500 GB (Bor) + 225 GB (Heimdall)   | 1725 GB |
-| approx. data growth daily         | 100 GB (Bor) + 5 GB (Heimdall)      | 105 GB  |
-| approx. total extracted size      | 2.1 TB (Bor) + 300 GB (Heimdall)    | 2.4 TB  |
-| suggested disk size (2.5x buffer) | 2.4 TB * 2.5 (natural chain growth) | 6 TB    |
+| Metric                            | Calculation Breakdown             | Value   |
+| --------------------------------- | --------------------------------- | ------- |
+| approx. compressed total          | 3000 GB (Bor) + 500 GB (Heimdall) | 3500 GB |
+| approx. data growth daily         | 100 GB (Bor) + 5 GB (Heimdall)    | 105 GB  |
+| approx. total extracted size      | 4 TB (Bor) + 500 GB (Heimdall)    | 4.5 TB  |
+| suggested disk size (2.5x buffer) | 4 TB * 2 (natural chain growth)   | 8 TB    |
 
 ### Polygon Amoy Erigon archive
 

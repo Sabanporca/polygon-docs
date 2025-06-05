@@ -1,13 +1,14 @@
+<!--
 ---
 comments: true
 ---
+-->
 
 Token mapping is important in order to enable the transfer mechanism for the said token between Ethereum and Polygon PoS.
 
 !!! info
 
-    - For more information on how bridging works in the background, see [the doc available here](../index.md).
-    - Thinking about bridging another popular token? Refer to the [reference guide on Polygon Portal](../../../../tools/wallets/portal.md).
+    Thinking about bridging a popular token? Refer to the [reference guide on Polygon Portal](../../../../tools/wallets/portal.md).
 
 ## Steps to submit a mapping request
 

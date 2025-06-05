@@ -1,8 +1,14 @@
+<!--
 ---
 comments: true
 ---
+-->
 
 ## Stavanger
+
+!!! warning
+    - Stavanger is waiting for a stable redeployment.
+    - You may experience errors on the testnet until the next CDK release.
 
 The [CDK Stavanger testnet](https://polygon.technology/cdk-stavanger-testnet) is a validium testnet based on Sepolia.
 

@@ -1,6 +1,8 @@
+<!--
 ---
 comments: true
 ---
+-->
 
 ## Consensus contracts
 
@@ -15,6 +17,11 @@ The following contracts manage consensus mechanisms. They deal with sequencing a
 [PolygonZkEVMEtrog.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/consensus/zkEVM/PolygonZkEVMEtrog.sol) is the rollup contract inherited from the base contract.
 
 This contract calls the `onSequenceBatches(...)` function on the `PolygonRollupManager.sol` contract to trigger the verification mechanism after successful sequencing through the `sequenceBatches(...)` call.
+
+<center>
+![Polygon Solidity smart contract consensus contract set](../../../../img/cdk/high-level-architecture/consensus-contracts.png)
+</center>
+
 
 ### `PolygonValidiumEtrog.sol`
 
@@ -33,6 +40,10 @@ The [PolygonRollupManager.sol](https://github.com/0xPolygonHermez/zkevm-contract
 
 It is responsible for the verification workflow by supplying updated exit root data to the [PolygonZkEVMGlobalExitRootV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMGlobalExitRootV2.sol) contract.
 
+<center>
+![Polygon Solidity smart contract rollup manager](../../../../img/cdk/high-level-architecture/rollup-manager.png){ width=80% }
+</center>
+
 #### Key functionality
 
 - Defining and adding rollup types which contains consensus implementation details and compatibility checks.
@@ -46,6 +57,10 @@ It is responsible for the verification workflow by supplying updated exit root d
 ### `PolygonZkEVMBridgeV2.sol`
 
 The [PolygonZkEVMBridgeV2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/main/contracts/v2/PolygonZkEVMBridgeV2.sol) is the main communication mechanism between the L1 and L2 realms. It manages bridging and claiming of assets and messages across environments.
+
+<center>
+![Polygon Solidity smart contract bridge](../../../../img/cdk/high-level-architecture/bridge.png){ width=80% }
+</center>
 
 #### Key functionality
 
@@ -69,6 +84,10 @@ The [PolygonZkEVMGlobalExitRootV2.sol](https://github.com/0xPolygonHermez/zkevm-
 - Updating exit roots.
 - Retrieving latest exit roots and leaf values.
 
+<center>
+![Polygon Solidity smart contract exit root L1](../../../../img/cdk/high-level-architecture/l1-exit-root.png){ width=60% }
+</center>
+
 ### `PolygonZkEVMGlobalExitRootL2.sol`
 
 The [PolygonZkEVMGlobalExitRootL2.sol](https://github.com/0xPolygonHermez/zkevm-contracts/blob/feature/etrog/contracts/PolygonZkEVMGlobalExitRootL2.sol) contract manages the L2 rollup info trees. 
@@ -81,3 +100,6 @@ It is a lighter-weight version of the global exit root contract mentioned previo
 - Updates the `lastRollupExitRoot` on any bridge call.
 - Updates the L2 network and global exit root with the `updateExitRoot(...)` function.
 
+<center>
+![Polygon Solidity smart contract exit root L2](../../../../img/cdk/high-level-architecture/l2-exit-root.png){ width=60% }
+</center>
